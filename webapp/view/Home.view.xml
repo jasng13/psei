@@ -1,0 +1,111 @@
+<mvc:View controllerName="PSEI.controller.Home" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:u="sap.ui.unified" xmlns:core="sap.ui.core" displayBlock="true" xmlns="sap.m">
+	<App id="idAppControl">
+		<pages>
+			<Page showHeader="false">
+				<content>
+					<VBox class="sapUiTinyMargin">
+						<NavContainer id="navCon" width="100%" height="827px">
+							<pages>
+								<!-- <Page showHeader="false" id="Ticker"> -->
+								<!-- place content via lazy loading -->
+								<!-- <mvc:XMLView viewName="PSEI.view.Ticker"/> -->
+								<!-- </Page> -->
+								<Page id="Ticker">
+									<headerContent>
+										<ToolbarSpacer/>
+										<Title id="tickerTitle" level="H4"/>
+										<Button icon="sap-icon://refresh" press="refresh"/>
+									</headerContent>
+									<content>
+										<Table showNoData="false" class="sapUiSizeCompact">
+											<columns>
+												<Column hAlign="Left" width="40%">
+													<Text text="Stock"/>
+												</Column>
+												<Column hAlign="Right">
+													<Text text="Value"/>
+												</Column>
+												<Column hAlign="Right">
+													<Text text="% Change"/>
+												</Column>
+											</columns>
+										</Table>
+										<ScrollContainer height="60%" vertical="true" class="sapUiSizeCompact sapUiNoContentPadding">
+											<Table id="tblStocks" inset="false" items="{stocks>/}">
+												<columns>
+													<Column hAlign="Left" width="40%"></Column>
+													<Column hAlign="Right"></Column>
+													<Column hAlign="Right"></Column>
+												</columns>
+												<items>
+													<ColumnListItem id="stdList" class="sapUiNoContentPadding sapUiSizeCompact">
+														<cells>
+															<ObjectIdentifier title="{stocks>symbol}" text="{stocks>name}"/>
+															<Text text="{path:'stocks>price/amount', formatter:'.formatter.fnToFixed'} "/>
+															<ObjectNumber number="{stocks>percent_change} %" state="{ path: 'stocks>percent_change', formatter: '.formatter.fnPriceState' }"/>
+														</cells>
+													</ColumnListItem>
+												</items>
+											</Table>
+										</ScrollContainer>
+										<Panel backgroundDesign="Solid" expandAnimation="false " headerText="Composite and Sector Indices" class="sapUiNoContentPadding"
+											expandable="true" expanded="false">
+											<content>
+												<Table showNoData="false" class="sapUiSizeCompact">
+													<columns>
+														<Column hAlign="Left" width="40%">
+															<Text text="Stock"/>
+														</Column>
+														<Column hAlign="Right">
+															<Text text="Value"/>
+														</Column>
+														<Column hAlign="Right">
+															<Text text="Percent Change"/>
+														</Column>
+													</columns>
+												</Table>
+												<ScrollContainer height="50%" vertical="true" class="sapUiSizeCompact sapUiNoContentPadding">
+													<Table id="tblCSI" inset="false" items="{stocks>/}">
+														<columns>
+															<Column hAlign="Left" width="40%"></Column>
+															<Column hAlign="Right"></Column>
+															<Column hAlign="Right"></Column>
+														</columns>
+														<items>
+															<ColumnListItem id="csiList" class="sapUiNoContentPadding sapUiSizeCompact">
+																<cells>
+																	<ObjectIdentifier title="{stocks>symbol}" text="{stocks>name}"/>
+																	<u:Currency value="{stocks>volume}" useSymbol="false"/>
+																	<!--<Text text="{path:'stocks>volume', formatter:'.formatter.fnToFixed'} "/>-->
+																	<ObjectNumber number="{stocks>percent_change} %" state="{ path: 'stocks>percent_change', formatter: '.formatter.fnPriceState' }"/>
+																</cells>
+															</ColumnListItem>
+														</items>
+													</Table>
+												</ScrollContainer>
+											</content>
+										</Panel>
+									</content>
+								</Page>
+								<Page showHeader="false" id="Portfolio">
+									<!-- place content via lazy loading -->
+								</Page>
+								<Page showHeader="false" id="Movements">
+									<!-- place content via lazy loading -->
+									<mvc:XMLView viewName="PSEI.view.Movements"/>
+								</Page>
+								<!--<Page showHeader="false" id="Declines">-->
+								<!-- place content via lazy loading -->
+								<!--</Page>-->
+							</pages>
+						</NavContainer>
+					</VBox>
+				</content>
+				<footer>
+					<core:Fragment fragmentName="PSEI.view.fragments.Footer" type="XML"/>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

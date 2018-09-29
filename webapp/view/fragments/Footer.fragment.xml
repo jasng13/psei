@@ -1,0 +1,14 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Toolbar>
+		<ToolbarSpacer/>
+		<SegmentedButton width="100%" select="onHandleSwitchTab" selectedKey="Ticker" id="idSegmentButton">
+			<items>
+				<SegmentedButtonItem text="Ticker" key="Ticker"/>
+				<SegmentedButtonItem text="Portfolio" key="Portfolio"/>
+				<SegmentedButtonItem text="Movements" key="Movements"/>
+				<!--<SegmentedButtonItem text="Declines" key="Declines"/>-->
+			</items>
+		</SegmentedButton>
+		<ToolbarSpacer/>
+	</Toolbar>
+</core:FragmentDefinition>

@@ -1,0 +1,84 @@
+<mvc:View controllerName="PSEI.controller.Ticker" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m">
+	<App>
+		<pages>
+			
+			<Page>
+				<headerContent>
+					<ToolbarSpacer/>
+					<Title id="tickerTitle" level="H4"/>
+					<Button icon="sap-icon://refresh" press="refresh"/>
+				</headerContent>
+				<content>
+					
+					<Table showNoData="false" class="sapUiSizeCompact">
+						<columns>
+							<Column>
+								<Text text="Stock" hAlign="Left" width="40%"/>
+							</Column>
+							<Column hAlign="Right">
+								<Text text="Value"/>
+							</Column>
+							<Column hAlign="Right">
+								<Text text="Percent Change"/>
+							</Column>
+						</columns>
+					</Table>
+					<ScrollContainer height="30rem" vertical="true" class="sapUiSizeCompact sapUiNoContentPadding">
+						<Table id="tblStocks" inset="false" items="{stocks>/}">
+							<columns>
+								<Column hAlign="Left" width="40%"></Column>
+								<Column hAlign="Right"></Column>
+								<Column hAlign="Right"></Column>
+							</columns>
+							<items>
+								<ColumnListItem id="stdList" class="sapUiNoContentPadding">
+									<cells>
+										<ObjectIdentifier title="{stocks>symbol}" text="{stocks>name}"/>
+										<Text text="{path:'stocks>price/amount', formatter:'.formatter.fnToFixed'} "/>
+										<ObjectNumber number="{stocks>percent_change} %" state="{ path: 'stocks>percent_change', formatter: '.formatter.fnPriceState' }"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</ScrollContainer>
+					<Panel headerText="Composite and Sector Indices" class="sapUiNoContentPadding" expandable="true" expanded="false">
+						<content>
+							<Table showNoData="false" class="sapUiSizeCompact">
+								<columns>
+									<Column>
+										<Text text="Stock" hAlign="Left" width="40%"/>
+									</Column>
+									<Column hAlign="Right">
+										<Text text="Value"/>
+									</Column>
+									<Column hAlign="Right">
+										<Text text="Percent Change"/>
+									</Column>
+								</columns>
+							</Table>
+							<ScrollContainer height="20rem" vertical="true" class="sapUiSizeCompact sapUiNoContentPadding">
+								<Table id="tblCSI" inset="false" items="{stocks>/}">
+									<columns>
+										<Column hAlign="Left" width="40%"></Column>
+										<Column hAlign="Right"></Column>
+										<Column hAlign="Right"></Column>
+									</columns>
+									<items>
+										<ColumnListItem id="csiList" class="sapUiNoContentPadding">
+											<cells>
+												<ObjectIdentifier title="{stocks>symbol}" text="{stocks>name}"/>
+												<Text text="{path:'stocks>volume', formatter:'.formatter.fnToFixed'} "/>
+												<ObjectNumber number="{stocks>percent_change} %" state="{ path: 'stocks>percent_change', formatter: '.formatter.fnPriceState' }"/>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</ScrollContainer>
+						</content>
+					</Panel>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

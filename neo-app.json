@@ -1,0 +1,44 @@
+{
+  "welcomeFile": "/webapp/index.html",
+  "routes": [
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources",
+        "version": "1.52.17"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources",
+        "version": "1.52.17"
+      },
+      "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/psei",
+      "target": {
+        "type": "destination",
+        "name": "psei",
+        "entryPath": "/"
+      },
+      "description": "stock exchange api"
+	},
+	 {
+      "path": "/PSEOffical",
+      "target": {
+        "type": "destination",
+        "name": "PSEOffical",
+        "entryPath": "/"
+      },
+      "description": "stock exchange official api"
+	}
+  ],
+  "sendWelcomeFileRedirect": true
+}
