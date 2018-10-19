@@ -76,8 +76,9 @@
 															<ColumnListItem id="csiList" class="sapUiNoContentPadding sapUiSizeCompact">
 																<cells>
 																	<ObjectIdentifier title="{stocks>symbol}" text="{stocks>name}"/>
-																	<u:Currency value="{stocks>volume}" useSymbol="false"/>
-																	<!--<Text text="{path:'stocks>volume', formatter:'.formatter.fnToFixed'} "/>-->
+																	<!--<u:Currency value="{stocks>volume}" useSymbol="false"/>-->
+
+																	<Text text="{path:'stocks>volume', formatter:'.formatter.fnToFixed'} "/>
 																	<ObjectNumber number="{stocks>percent_change} %" state="{ path: 'stocks>percent_change', formatter: '.formatter.fnPriceState' }"/>
 																</cells>
 															</ColumnListItem>
