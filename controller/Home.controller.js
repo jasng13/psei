@@ -70,9 +70,10 @@ sap.ui.define([
 
 		fnUpdateList: function() {
 			var that = this;
-			var sUrl = "/psei/stocks.json";
+			// var sUrl = "/psei/stocks.json";
 
-			// var sUrl = "http://phisix-api.appspot.com/stocks.json";
+			// var sUrl = "http://phisix-api.appspot.com/stocks.json"; //3rd party api
+			var sUrl = "https://www.pse.com.ph/stockMarket/dailySummary.html?method=getDeclinesSecurity" //pse main page
 			var oModel = new sap.ui.model.json.JSONModel();
 			$.get(sUrl)
 				.done(function(results) {
